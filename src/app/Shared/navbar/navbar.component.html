@@ -1,0 +1,54 @@
+<header>
+
+<mdb-navbar  SideClass="navbar navbar-expand-lg navbar-light grey lighten-5 sticky-top scrolling-navbar" [containerInside]="false"  >
+   
+    <!-- Navbar brand -->
+    <mdb-navbar-brand><a class="navbar-brand" href="#" >
+        <img src="../../../assets/Images\Logo\Cantima.png" width="60px" >
+    </a></mdb-navbar-brand>
+  
+    <!-- Collapsible content -->
+    <links>
+  
+      <!-- Links -->
+      <ul class="navbar-nav mr-auto" style="padding-left: 20px;">
+        <li class="nav-item ">
+          <a class="nav-link waves-light" mdbWavesEffect><h5><strong>Dashboard</strong></h5></a>
+        </li>
+        <li class="nav-item active" style="padding-left: 30px;">
+          <a class="nav-link waves-light" [routerLink]="['instock']"  mdbWavesEffect>In Stock <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item" style="padding-left: 30px;">
+          <a class="nav-link waves-light" mdbWavesEffect>Credit Convert</a>
+        </li>
+        <li class="nav-item" style="padding-left: 30px;">
+            <a class="nav-link waves-light" mdbWavesEffect>Cashier</a>
+        </li>
+  
+        
+  
+      </ul>
+
+      <!-- Links -->
+  
+      <ul class="navbar-nav ml-auto nav-flex-icons">
+        
+        <li class="nav-item avatar dropdown" dropdown>
+          <a dropdownToggle mdbWavesEffect type="button" class="nav-link dropdown-toggle waves-light" mdbWavesEffect>
+            <img src="../../../assets/Images/Buttons/64572.png" width="50" alt="" class="img-fluid rounded-circle z-depth-0"></a>
+          <div *dropdownMenu class="dropdown-menu dropdown-menu-right dropdown dropdown-primary" role="menu">
+            <a class="dropdown-item waves-light" mdbWavesEffect href="#">My account</a>
+            <a class="dropdown-item waves-light" mdbWavesEffect href="#">Log out</a>
+            <div class="divider dropdown-divider"></div>
+            <a class="dropdown-item waves-light" mdbWavesEffect href="#">Separated link</a>
+          </div>
+        </li>
+      </ul>
+    </links>
+    <!-- Collapsible content -->
+  
+  </mdb-navbar>
+  <!--/.Navbar-->
+</header>
+ 
+<app-dcard></app-dcard>
