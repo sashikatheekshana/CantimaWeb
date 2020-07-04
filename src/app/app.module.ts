@@ -9,17 +9,19 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { IconsModule } from 'angular-bootstrap-md';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NavbarComponent } from './Shared/navbar/navbar.component';
 import { DcardComponent } from './Shared/dcard/dcard.component';
 import { InstockComponent } from './instock/instock.component';
+import { SigninComponent } from './signin/signin.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
     DcardComponent,
-    InstockComponent
+    InstockComponent,
+    SigninComponent
   ],
   imports: [
     BrowserModule,
@@ -27,6 +29,7 @@ import { InstockComponent } from './instock/instock.component';
     MDBBootstrapModule.forRoot(),
     AppRoutingModule,
     FormsModule,
+    ReactiveFormsModule,
     IconsModule,
   ],
   providers: [],

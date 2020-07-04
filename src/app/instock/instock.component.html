@@ -1,10 +1,8 @@
-
-
-
+<app-navbar></app-navbar>
 
 <div class="row justify-content-end" style="margin-left: 380px;">
 
-   
+   <div class="container" style= "min-width: 1480px;">
         <div class="col-md-12" > 
 
             
@@ -17,32 +15,34 @@
                 <div class="col">
 
                   <!-- Search form -->
-                  <form class="form-inline waves-light" mdbWavesEffect>
-                    <div class="md-form my-0">
-                        <input class="form-control mr-sm-2" type="text" placeholder="Search">
-                    </div>
-                </form>
+                    <form class="form-inline waves-light" mdbWavesEffect>
+                        <div class="md-form my-0">
+                            <input class="form-control mr-sm-2" type="text" placeholder="Search">
+                        </div>
+                    <button type="button" mdbBtn color="warning" style="padding: 10px; box-shadow: none; box-sizing: initial;" mdbWavesEffect><mdb-icon fas icon="search" size="1.5x" ></mdb-icon></button> 
+                    </form>
                 </div>
 
                 <!-- Sort select -->
                 <div class="col">
                     <select class="browser-default custom-select">
                         <option selected>Sort Type</option>
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
+                        <option value="1">Price</option>
+                        <option value="2">Name</option>
+                        <option value="3">Quantity</option>
+                        <option value="3">Rating</option>
                       </select>
                 </div>
 
                 <!-- New Item -->
                 <div class="col " style="text-align: right;">
-                    <button class="black-text" type="button" mdbBtn color="warning" style="margin-bottom: 10px; margin-top: 0px; " mdbWavesEffect>New Item <mdb-icon fas icon="plus" style="margin-left: 15px;"></mdb-icon></button>
+                    <button class="black-text" type="button" mdbBtn color="warning" style="margin-bottom: 10px; margin-top: 0px; box-shadow: none; box-sizing: content-box;" mdbWavesEffect><strong>New Item</strong> <mdb-icon fas icon="plus" size="1.5x" style="margin-left: 15px;"></mdb-icon></button>
                     
                 </div>
             
          
-            <table class="table table-striped " mdbtable >
-                <thead class="hoverable" style="background-color: rgb(245, 245, 245)" >
+            <table class="table table-striped " mdbTable  >
+                <thead class="text-center" style="background-color: rgb(245, 245, 245)" >
                     <tr >
                     <th> Product Code</th>
                     <th> Product Name</th>
@@ -50,18 +50,347 @@
                     <th> Availability</th>
                     <th> Rating</th>
                     <th> Quantity</th>
-                    <th> -------</th>                   
+                    <th> </th>                   
                     </tr>
-                    <!-- Data from products table database goes here -->
+                   
 
-                    <!-- <tr *ngFor = "let item of products">
+                    <!-- example lines -->
+                    <tr class="hoverable">
+                        <td>123456</td>
+                        <td>Rolls</td>
+                        <td>Rs 30.00</td>
+                        <td><select class=" custom-select">
+                            <option selected>Availabile</option>                            
+                            <option value="1">Not Available</option>                           
+                          </select>
+                        </td>
+                        <td>90%</td>
+                        <td>23/80</td>
+                        <td>
+                            <span class="table-remove">
+                              <button type="button" mdbBtn color="danger" rounded="true" size="sm" class="my-0" >Edit</button>
+                            </span>
+                          </td>
+                    </tr>
+
+                    <tr class="hoverable">
+                        <td>123456</td>
+                        <td>patis</td>
+                        <td>Rs 20.00</td>
+                        <td><select class=" custom-select">
+                            <option selected>Availabile</option>                            
+                            <option value="1">Not Available</option>                           
+                          </select>
+                        </td>
+                        <td>78%</td>
+                        <td>45/80</td>
+                        <td>
+                            <span class="table-remove">
+                              <button type="button" mdbBtn color="danger" rounded="true" size="sm" class="my-0" >Edit</button>
+                            </span>
+                          </td>
+                    </tr>
+
+                    <tr class="hoverable">
+                        <td>123456</td>
+                        <td>Wade</td>
+                        <td>Rs 30.00</td>
+                        <td><select class=" custom-select">
+                            <option selected>Availabile</option>                            
+                            <option value="1">Not Available</option>                           
+                          </select>
+                        </td>
+                        <td>80%</td>
+                        <td>20/80</td>
+                        <td>
+                            <span class="table-remove">
+                              <button type="button" mdbBtn color="danger" rounded="true" size="sm" class="my-0" >Edit</button>
+                            </span>
+                          </td>
+                    </tr>
+
+                    <tr class="hoverable">
+                        <td>123456</td>
+                        <td>Rolls</td>
+                        <td>Rs 30.00</td>
+                        <td><select class=" custom-select">
+                            <option selected>Availabile</option>                            
+                            <option value="1">Not Available</option>                           
+                          </select>
+                        </td>
+                        <td>90%</td>
+                        <td>23/80</td>
+                        <td>
+                            <span class="table-remove">
+                              <button type="button" mdbBtn color="danger" rounded="true" size="sm" class="my-0" >Edit</button>
+                            </span>
+                          </td>
+                    </tr>
+
+                    <tr class="hoverable">
+                        <td>123456</td>
+                        <td>patis</td>
+                        <td>Rs 20.00</td>
+                        <td><select class=" custom-select">
+                            <option selected>Availabile</option>                            
+                            <option value="1">Not Available</option>                           
+                          </select>
+                        </td>
+                        <td>78%</td>
+                        <td>45/80</td>
+                        <td>
+                            <span class="table-remove">
+                              <button type="button" mdbBtn color="danger" rounded="true" size="sm" class="my-0" >Edit</button>
+                            </span>
+                          </td>
+                    </tr>
+
+                    <tr class="hoverable">
+                        <td>123456</td>
+                        <td>Wade</td>
+                        <td>Rs 30.00</td>
+                        <td><select class=" custom-select">
+                            <option selected>Availabile</option>                            
+                            <option value="1">Not Available</option>                           
+                          </select>
+                        </td>
+                        <td>80%</td>
+                        <td>20/80</td>
+                        <td>
+                            <span class="table-remove">
+                              <button type="button" mdbBtn color="danger" rounded="true" size="sm" class="my-0" >Edit</button>
+                            </span>
+                          </td>
+                    </tr>
+
+                    <tr class="hoverable">
+                        <td>123456</td>
+                        <td>Rolls</td>
+                        <td>Rs 30.00</td>
+                        <td><select class=" custom-select">
+                            <option selected>Availabile</option>                            
+                            <option value="1">Not Available</option>                           
+                          </select>
+                        </td>
+                        <td>90%</td>
+                        <td>23/80</td>
+                        <td>
+                            <span class="table-remove">
+                              <button type="button" mdbBtn color="danger" rounded="true" size="sm" class="my-0" >Edit</button>
+                            </span>
+                          </td>
+                    </tr>
+
+                    <tr class="hoverable">
+                        <td>123456</td>
+                        <td>patis</td>
+                        <td>Rs 20.00</td>
+                        <td><select class=" custom-select">
+                            <option selected>Availabile</option>                            
+                            <option value="1">Not Available</option>                           
+                          </select>
+                        </td>
+                        <td>78%</td>
+                        <td>45/80</td>
+                        <td>
+                            <span class="table-remove">
+                              <button type="button" mdbBtn color="danger" rounded="true" size="sm" class="my-0" >Edit</button>
+                            </span>
+                          </td>
+                    </tr>
+
+                    <tr class="hoverable">
+                        <td>123456</td>
+                        <td>Wade</td>
+                        <td>Rs 30.00</td>
+                        <td><select class=" custom-select">
+                            <option selected>Availabile</option>                            
+                            <option value="1">Not Available</option>                           
+                          </select>
+                        </td>
+                        <td>80%</td>
+                        <td>20/80</td>
+                        <td>
+                            <span class="table-remove">
+                              <button type="button" mdbBtn color="danger" rounded="true" size="sm" class="my-0" >Edit</button>
+                            </span>
+                          </td>
+                    </tr>
+
+                    <tr class="hoverable">
+                        <td>123456</td>
+                        <td>Rolls</td>
+                        <td>Rs 30.00</td>
+                        <td><select class=" custom-select">
+                            <option selected>Availabile</option>                            
+                            <option value="1">Not Available</option>                           
+                          </select>
+                        </td>
+                        <td>90%</td>
+                        <td>23/80</td>
+                        <td>
+                            <span class="table-remove">
+                              <button type="button" mdbBtn color="danger" rounded="true" size="sm" class="my-0" >Edit</button>
+                            </span>
+                          </td>
+                    </tr>
+
+                    <tr class="hoverable">
+                        <td>123456</td>
+                        <td>patis</td>
+                        <td>Rs 20.00</td>
+                        <td><select class=" custom-select">
+                            <option selected>Availabile</option>                            
+                            <option value="1">Not Available</option>                           
+                          </select>
+                        </td>
+                        <td>78%</td>
+                        <td>45/80</td>
+                        <td>
+                            <span class="table-remove">
+                              <button type="button" mdbBtn color="danger" rounded="true" size="sm" class="my-0" >Edit</button>
+                            </span>
+                          </td>
+                    </tr>
+
+                    <tr class="hoverable">
+                        <td>123456</td>
+                        <td>Wade</td>
+                        <td>Rs 30.00</td>
+                        <td><select class=" custom-select">
+                            <option selected>Availabile</option>                            
+                            <option value="1">Not Available</option>                           
+                          </select>
+                        </td>
+                        <td>80%</td>
+                        <td>20/80</td>
+                        <td>
+                            <span class="table-remove">
+                              <button type="button" mdbBtn color="danger" rounded="true" size="sm" class="my-0" >Edit</button>
+                            </span>
+                          </td>
+                    </tr>
+
+                    <tr class="hoverable">
+                        <td>123456</td>
+                        <td>Rolls</td>
+                        <td>Rs 30.00</td>
+                        <td><select class=" custom-select">
+                            <option selected>Availabile</option>                            
+                            <option value="1">Not Available</option>                           
+                          </select>
+                        </td>
+                        <td>90%</td>
+                        <td>23/80</td>
+                        <td>
+                            <span class="table-remove">
+                              <button type="button" mdbBtn color="danger" rounded="true" size="sm" class="my-0" >Edit</button>
+                            </span>
+                          </td>
+                    </tr>
+
+                    <tr class="hoverable">
+                        <td>123456</td>
+                        <td>patis</td>
+                        <td>Rs 20.00</td>
+                        <td><select class=" custom-select">
+                            <option selected>Availabile</option>                            
+                            <option value="1">Not Available</option>                           
+                          </select>
+                        </td>
+                        <td>78%</td>
+                        <td>45/80</td>
+                        <td>
+                            <span class="table-remove">
+                              <button type="button" mdbBtn color="danger" rounded="true" size="sm" class="my-0" >Edit</button>
+                            </span>
+                          </td>
+                    </tr>
+
+                    <tr class="hoverable">
+                        <td>123456</td>
+                        <td>Wade</td>
+                        <td>Rs 30.00</td>
+                        <td><select class=" custom-select">
+                            <option selected>Availabile</option>                            
+                            <option value="1">Not Available</option>                           
+                          </select>
+                        </td>
+                        <td>80%</td>
+                        <td>20/80</td>
+                        <td>
+                            <span class="table-remove">
+                              <button type="button" mdbBtn color="danger" rounded="true" size="sm" class="my-0" >Edit</button>
+                            </span>
+                          </td>
+                    </tr>
+
+                    <tr class="hoverable">
+                        <td>123456</td>
+                        <td>Rolls</td>
+                        <td>Rs 30.00</td>
+                        <td><select class=" custom-select">
+                            <option selected>Availabile</option>                            
+                            <option value="1">Not Available</option>                           
+                          </select>
+                        </td>
+                        <td>90%</td>
+                        <td>23/80</td>
+                        <td>
+                            <span class="table-remove">
+                              <button type="button" mdbBtn color="danger" rounded="true" size="sm" class="my-0" >Edit</button>
+                            </span>
+                          </td>
+                    </tr>
+
+                    <tr class="hoverable">
+                        <td>123456</td>
+                        <td>patis</td>
+                        <td>Rs 20.00</td>
+                        <td><select class=" custom-select">
+                            <option selected>Availabile</option>                            
+                            <option value="1">Not Available</option>                           
+                          </select>
+                        </td>
+                        <td>78%</td>
+                        <td>45/80</td>
+                        <td>
+                            <span class="table-remove">
+                              <button type="button" mdbBtn color="danger" rounded="true" size="sm" class="my-0" >Edit</button>
+                            </span>
+                          </td>
+                    </tr>
+
+                    <tr class="hoverable">
+                        <td>123456</td>
+                        <td>Wade</td>
+                        <td>Rs 30.00</td>
+                        <td><select class=" custom-select">
+                            <option selected>Availabile</option>                            
+                            <option value="1">Not Available</option>                           
+                          </select>
+                        </td>
+                        <td>80%</td>
+                        <td>20/80</td>
+                        <td>
+                            <span class="table-remove">
+                              <button type="button" mdbBtn color="danger" rounded="true" size="sm" class="my-0" >Edit</button>
+                            </span>
+                          </td>
+                    </tr>
+
+                    <!-- /example lines -->
+
+                     <!-- Data from products table database goes here -->
+
+                    <!-- <tr class="hoverable" *ngFor = "let item of products">
                         <td>{{products.Code}}</td>
                         <td>{{products.Name}}</td>
                         <td>{{products.Price}}</td>
                         ......
                         
                         </tr> -->
-                    </thead>                      
+                </thead>                      
                 
                 
             </table>
@@ -69,9 +398,9 @@
 
 
             
+        </div>
     </div>
 </div>
-
 
 
 
