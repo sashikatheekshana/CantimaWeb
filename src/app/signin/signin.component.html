@@ -1,13 +1,25 @@
 
 
-<div class="container col-md-3 " style="margin-top: 10%;" >
+<div class="container col-md-3 " style="margin-top: 9%;" >
            
 <!--form login -->
     <form class="text-center border border-light p-5 gradient-card-header cloudy-knoxville-gradient">
 
-        <p class="h3 mb-4">Sign in</p>
+        
+            <!--Header-->
+            <div class=" text-center pb-4">
+              <h3 class="modal-title w-100 black-text font-weight-bold" id="myModalLabel">
+                <strong>SIGN</strong>
+                <a class="orange-text font-weight-bold">
+                <strong> UP</strong>
+                </a>
+              </h3>
+              </div>
+              
+
+        <!-- <p class="h3 mb-4">Sign in</p> -->
     
-        <div style="margin: 80px; margin-bottom: 30px; margin-top: 25px;">
+        <div style="margin: 80px; margin-bottom: 30px; margin-top: 5px;">
             <img src="../../assets/Images\Logo\Cantima.png" class="img-fluid" alt="...">
         </div>
         <!-- Username -->
@@ -28,13 +40,13 @@
         </div>
     
         <!-- Sign in button -->
-        <button mdbBtn color="warning" block="true" class="my-4" type="submit">Sign in</button>
-    
-    
+        <button mdbBtn color="warning" block="true" class="my-4" type="submit" [routerLink]="['/instock']">Sign in</button>
+            
+           
+        <p>Not a member? <a href="">Register</a></p>
+           
         
-    
-    
-  
+             
     </form>
   <!-- Default form login -->
 </div>
