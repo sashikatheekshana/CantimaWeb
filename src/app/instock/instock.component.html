@@ -3,13 +3,12 @@
 </header>
 
 
-<div class="row justify-content-end " style="margin-left: 20%; margin-top: 7%;">
-
-   <div class="container" style= "min-width: 1480px;">
-        <div class="col-md-12" > 
-
-            
-
+<div class="row" style=" margin-top: 7%;">
+    <div class="col-lg-2 col-md-2">
+      <app-dcard></app-dcard>
+    </div>
+    <div class="container col-lg-9 col-md-9" >
+        <div>
             <div class="row" style="margin: 0px; padding: 0px;">
 
                 <div class="col">
@@ -37,13 +36,19 @@
                       </select>
                 </div>
 
-                <!-- New Item -->
+                <!-- -------------------New Item-------------------------- -->
+
                 <div class="col " style="text-align: right;">
-                    <button class="black-text" type="button" mdbBtn color="warning" style="margin-bottom: 10px; margin-top: 0px; box-shadow: none; box-sizing: content-box;" mdbWavesEffect><strong>New Item</strong> <mdb-icon fas icon="plus" size="1.5x" style="margin-left: 15px;"></mdb-icon></button>
+                    <button class="black-text " type="button" mdbBtn color="warning" style="margin-bottom: 10px; margin-top: 0px; box-sizing: content-box;"  data-toggle="modal" data-target="#basicExample"
+                    (click)="frame.show()"  mdbWavesEffect>
+                      <strong>New Item</strong> 
+                      <mdb-icon fas icon="plus" size="1.5x" style="margin-left: 15px;"></mdb-icon>
+                    </button>
                     
                 </div>
             
-         
+                <!-- --------------table----------------- -->
+                
             <table class="table table-striped " mdbTable  >
                 <thead class="text-center" style="background-color: rgb(245, 245, 245)" >
                     <tr >
@@ -58,25 +63,470 @@
                    
 
                     <!-- example lines -->
-                    <tr class="hoverable">
+                    <tr>
                         <td>123456</td>
                         <td>Rolls</td>
                         <td>Rs 30.00</td>
-                        <td><select class=" custom-select">
-                            <option selected>Availabile</option>                            
-                            <option value="1">Not Available</option>                           
-                          </select>
+                        <td>
+
+                          <label class="switch">
+                            <input type="checkbox" checked>
+                            <span class="slider round"></span>
+                            <span class="absolute-no">NO</span>
+                          </label>
+                        
                         </td>
                         <td>90%</td>
                         <td>23/80</td>
                         <td>
                             <span class="table-remove">
-                              <button type="button" mdbBtn color="danger" rounded="true" size="sm" class="my-0" >Edit</button>
+
+                              
+                              <button type="button" mdbBtn color="danger" rounded="true" size="sm" class="relative waves-light" (click)="editModal.show()" mdbWavesEffect >Edit</button>
+
+                              <div mdbModal #editModal="mdbModal" class="modal fade right" id="frameModalTop" tabindex="-1" role="dialog"
+                                  aria-labelledby="myModalLabel" aria-hidden="true">
+                                <div class="modal-dialog modal-full-height modal-right" role="document">
+                                  <div class="modal-content">
+                                    <div class="modal-header text-center">
+                                      <button type="button" class="close pull-right" aria-label="Close" (click)="editModal.hide()">
+                                        <span aria-hidden="true">×</span>
+                                      </button>
+                                      <h4 class="modal-title w-100 font-weight-bold">Edit Item</h4>
+                                    </div>
+                                    
+
+                                    <div class="modal-body mx-3">
+                                      <form class="border border-0 p-4" id="add-item">
+                                        
+                                          <div>                       
+                                              <input type="text" id="textInput" class="form-control mb-4" placeholder="Product Name">
+                                          </div>
+                                          <div class="input-group mb-2 mr-sm-2">
+                                            <div class="input-group-prepend">
+                                              <div class="input-group-text">Rs.</div>
+                                            </div>
+                                            <input mdbInput type="number" class="form-control py-0" min="1" id="price"  placeholder="Price">
+                                          </div>
+                                        
+                                        <select class="browser-default custom-select mb-4" id="select">
+                                            <option value="" disabled="" selected="">Choose the category</option>
+                                            <option value="1">Short Eats</option>
+                                            <option value="2">Rice & Curry</option>
+                                            <option value="3">Beverages</option>
+                                            <option value="3">Deserts</option>
+                                        </select>
+                                        <select class="browser-default custom-select mb-4" id="select">
+                                          <option value="" disabled="" selected="">Menu time</option>
+                                          <option value="1">Breakfirst (till 11a.m)</option>
+                                          <option value="2">Lunch (11a.m-3p.m)</option>
+                                          <option value="3">Evening (after 3p.m)</option>
+                                          <option value="3">All Day</option>
+                                        </select>
+                                  
+                                        <div class="input-group mb-4">
+                                            <div class="custom-file">
+                                                <input type="file" class="custom-file-input" id="fileInput" aria-describedby="fileInput" multiple>
+                                                <label class="custom-file-label" for="fileInput">Select Images</label>
+                                            </div>
+                                        </div>
+                                      
+                                          
+                                                <div class="custom-control custom-checkbox mb-3">
+                                                    <input type="checkbox" class="custom-control-input" id="customControlValidation1" required>
+                                                    <label class="custom-control-label" for="customControlValidation1">Vegetarian</label>                               
+                                                </div>
+                                          
+                                      
+                                        <textarea id="textarea" class="form-control mb-4" placeholder="Description"></textarea>
+                                      
+                                    </form>
+                                    </div>
+                              
+                                    <div class="modal-footer d-flex justify-content-center">
+                                      <button mdbBtn color="warning" class="waves-light" mdbWavesEffect>Save Item</button>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+
                             </span>
                           </td>
                     </tr>
 
-                    <tr class="hoverable">
+                    <tr>
+                      <td>123456</td>
+                      <td>Rolls</td>
+                      <td>Rs 30.00</td>
+                      <td>
+
+                        <label class="switch">
+                          <input type="checkbox" checked>
+                          <span class="slider round"></span>
+                          <span class="absolute-no">NO</span>
+                        </label>
+                        <!-- <div class="custom-control custom-switch">
+                        <input type="checkbox" class="custom-control-input" id="availSwitch" data-width="100">
+                        <label class="custom-control-label" for="availSwitch"></label>
+                        </div> -->
+                      </td>
+                      <td>90%</td>
+                      <td>23/80</td>
+                      <td>
+                          <span class="table-remove">
+
+                            
+                            <button type="button" mdbBtn color="danger" rounded="true" size="sm" class="relative waves-light" (click)="editModal.show()" mdbWavesEffect >Edit</button>
+
+                            <div mdbModal #editModal="mdbModal" class="modal fade right" id="frameModalTop" tabindex="-1" role="dialog"
+                                aria-labelledby="myModalLabel" aria-hidden="true">
+                              <div class="modal-dialog modal-full-height modal-right" role="document">
+                                <div class="modal-content">
+                                  <div class="modal-header text-center">
+                                    <button type="button" class="close pull-right" aria-label="Close" (click)="editModal.hide()">
+                                      <span aria-hidden="true">×</span>
+                                    </button>
+                                    <h4 class="modal-title w-100 font-weight-bold">Edit Item</h4>
+                                  </div>
+                                  
+
+                                  <div class="modal-body mx-3">
+                                    <form class="border border-0 p-4" id="add-item">
+                                      
+                                        <div>                       
+                                            <input type="text" id="textInput" class="form-control mb-4" placeholder="Product Name">
+                                        </div>
+                                        <div class="input-group mb-2 mr-sm-2">
+                                          <div class="input-group-prepend">
+                                            <div class="input-group-text">Rs.</div>
+                                          </div>
+                                          <input mdbInput type="number" class="form-control py-0" min="1" id="price"  placeholder="Price">
+                                        </div>
+                                      
+                                      <select class="browser-default custom-select mb-4" id="select">
+                                          <option value="" disabled="" selected="">Choose the category</option>
+                                          <option value="1">Short Eats</option>
+                                          <option value="2">Rice & Curry</option>
+                                          <option value="3">Beverages</option>
+                                          <option value="3">Deserts</option>
+                                      </select>
+                                      <select class="browser-default custom-select mb-4" id="select">
+                                        <option value="" disabled="" selected="">Menu time</option>
+                                        <option value="1">Breakfirst (till 11a.m)</option>
+                                        <option value="2">Lunch (11a.m-3p.m)</option>
+                                        <option value="3">Evening (after 3p.m)</option>
+                                        <option value="3">All Day</option>
+                                      </select>
+                                
+                                      <div class="input-group mb-4">
+                                          <div class="custom-file">
+                                              <input type="file" class="custom-file-input" id="fileInput" aria-describedby="fileInput" multiple>
+                                              <label class="custom-file-label" for="fileInput">Select Images</label>
+                                          </div>
+                                      </div>
+                                    
+                                        
+                                              <div class="custom-control custom-checkbox mb-3">
+                                                  <input type="checkbox" class="custom-control-input" id="customControlValidation1" required>
+                                                  <label class="custom-control-label" for="customControlValidation1">Vegetarian</label>                               
+                                              </div>
+                                        
+                                    
+                                      <textarea id="textarea" class="form-control mb-4" placeholder="Description"></textarea>
+                                    
+                                  </form>
+                                  </div>
+                            
+                                  <div class="modal-footer d-flex justify-content-center">
+                                    <button mdbBtn color="warning" class="waves-light" mdbWavesEffect>Save Item</button>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+
+                          </span>
+                        </td>
+                    </tr>
+
+                    <tr>
+                      <td>123456</td>
+                      <td>Rolls</td>
+                      <td>Rs 30.00</td>
+                      <td>
+
+                        <label class="switch">
+                          <input type="checkbox" checked>
+                          <span class="slider round"></span>
+                          <span class="absolute-no">NO</span>
+                        </label>
+                        <!-- <div class="custom-control custom-switch">
+                        <input type="checkbox" class="custom-control-input" id="availSwitch" data-width="100">
+                        <label class="custom-control-label" for="availSwitch"></label>
+                        </div> -->
+                      </td>
+                      <td>90%</td>
+                      <td>23/80</td>
+                      <td>
+                          <span class="table-remove">
+
+                            
+                            <button type="button" mdbBtn color="danger" rounded="true" size="sm" class="relative waves-light" (click)="editModal.show()" mdbWavesEffect >Edit</button>
+
+                            <div mdbModal #editModal="mdbModal" class="modal fade right" id="frameModalTop" tabindex="-1" role="dialog"
+                                aria-labelledby="myModalLabel" aria-hidden="true">
+                              <div class="modal-dialog modal-full-height modal-right" role="document">
+                                <div class="modal-content">
+                                  <div class="modal-header text-center">
+                                    <button type="button" class="close pull-right" aria-label="Close" (click)="editModal.hide()">
+                                      <span aria-hidden="true">×</span>
+                                    </button>
+                                    <h4 class="modal-title w-100 font-weight-bold">Edit Item</h4>
+                                  </div>
+                                  
+
+                                  <div class="modal-body mx-3">
+                                    <form class="border border-0 p-4" id="add-item">
+                                      
+                                        <div>                       
+                                            <input type="text" id="textInput" class="form-control mb-4" placeholder="Product Name">
+                                        </div>
+                                        <div class="input-group mb-2 mr-sm-2">
+                                          <div class="input-group-prepend">
+                                            <div class="input-group-text">Rs.</div>
+                                          </div>
+                                          <input mdbInput type="number" class="form-control py-0" min="1" id="price"  placeholder="Price">
+                                        </div>
+                                      
+                                      <select class="browser-default custom-select mb-4" id="select">
+                                          <option value="" disabled="" selected="">Choose the category</option>
+                                          <option value="1">Short Eats</option>
+                                          <option value="2">Rice & Curry</option>
+                                          <option value="3">Beverages</option>
+                                          <option value="3">Deserts</option>
+                                      </select>
+                                      <select class="browser-default custom-select mb-4" id="select">
+                                        <option value="" disabled="" selected="">Menu time</option>
+                                        <option value="1">Breakfirst (till 11a.m)</option>
+                                        <option value="2">Lunch (11a.m-3p.m)</option>
+                                        <option value="3">Evening (after 3p.m)</option>
+                                        <option value="3">All Day</option>
+                                      </select>
+                                
+                                      <div class="input-group mb-4">
+                                          <div class="custom-file">
+                                              <input type="file" class="custom-file-input" id="fileInput" aria-describedby="fileInput" multiple>
+                                              <label class="custom-file-label" for="fileInput">Select Images</label>
+                                          </div>
+                                      </div>
+                                    
+                                        
+                                              <div class="custom-control custom-checkbox mb-3">
+                                                  <input type="checkbox" class="custom-control-input" id="customControlValidation1" required>
+                                                  <label class="custom-control-label" for="customControlValidation1">Vegetarian</label>                               
+                                              </div>
+                                        
+                                    
+                                      <textarea id="textarea" class="form-control mb-4" placeholder="Description"></textarea>
+                                    
+                                  </form>
+                                  </div>
+                            
+                                  <div class="modal-footer d-flex justify-content-center">
+                                    <button mdbBtn color="warning" class="waves-light" mdbWavesEffect>Save Item</button>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+
+                          </span>
+                        </td>
+                    </tr>
+
+                    <tr>
+                      <td>123456</td>
+                      <td>Rolls</td>
+                      <td>Rs 30.00</td>
+                      <td>
+
+                        <label class="switch">
+                          <input type="checkbox" checked>
+                          <span class="slider round"></span>
+                          <span class="absolute-no">NO</span>
+                        </label>
+                        <!-- <div class="custom-control custom-switch">
+                        <input type="checkbox" class="custom-control-input" id="availSwitch" data-width="100">
+                        <label class="custom-control-label" for="availSwitch"></label>
+                        </div> -->
+                      </td>
+                      <td>90%</td>
+                      <td>23/80</td>
+                      <td>
+                          <span class="table-remove">
+
+                            
+                            <button type="button" mdbBtn color="danger" rounded="true" size="sm" class="relative waves-light" (click)="editModal.show()" mdbWavesEffect >Edit</button>
+
+                            <div mdbModal #editModal="mdbModal" class="modal fade right" id="frameModalTop" tabindex="-1" role="dialog"
+                                aria-labelledby="myModalLabel" aria-hidden="true">
+                              <div class="modal-dialog modal-full-height modal-right" role="document">
+                                <div class="modal-content">
+                                  <div class="modal-header text-center">
+                                    <button type="button" class="close pull-right" aria-label="Close" (click)="editModal.hide()">
+                                      <span aria-hidden="true">×</span>
+                                    </button>
+                                    <h4 class="modal-title w-100 font-weight-bold">Edit Item</h4>
+                                  </div>
+                                  
+
+                                  <div class="modal-body mx-3">
+                                    <form class="border border-0 p-4" id="add-item">
+                                      
+                                        <div>                       
+                                            <input type="text" id="textInput" class="form-control mb-4" placeholder="Product Name">
+                                        </div>
+                                        <div class="input-group mb-2 mr-sm-2">
+                                          <div class="input-group-prepend">
+                                            <div class="input-group-text">Rs.</div>
+                                          </div>
+                                          <input mdbInput type="number" class="form-control py-0" min="1" id="price"  placeholder="Price">
+                                        </div>
+                                      
+                                      <select class="browser-default custom-select mb-4" id="select">
+                                          <option value="" disabled="" selected="">Choose the category</option>
+                                          <option value="1">Short Eats</option>
+                                          <option value="2">Rice & Curry</option>
+                                          <option value="3">Beverages</option>
+                                          <option value="3">Deserts</option>
+                                      </select>
+                                      <select class="browser-default custom-select mb-4" id="select">
+                                        <option value="" disabled="" selected="">Menu time</option>
+                                        <option value="1">Breakfirst (till 11a.m)</option>
+                                        <option value="2">Lunch (11a.m-3p.m)</option>
+                                        <option value="3">Evening (after 3p.m)</option>
+                                        <option value="3">All Day</option>
+                                      </select>
+                                
+                                      <div class="input-group mb-4">
+                                          <div class="custom-file">
+                                              <input type="file" class="custom-file-input" id="fileInput" aria-describedby="fileInput" multiple>
+                                              <label class="custom-file-label" for="fileInput">Select Images</label>
+                                          </div>
+                                      </div>
+                                    
+                                        
+                                              <div class="custom-control custom-checkbox mb-3">
+                                                  <input type="checkbox" class="custom-control-input" id="customControlValidation1" required>
+                                                  <label class="custom-control-label" for="customControlValidation1">Vegetarian</label>                               
+                                              </div>
+                                        
+                                    
+                                      <textarea id="textarea" class="form-control mb-4" placeholder="Description"></textarea>
+                                    
+                                  </form>
+                                  </div>
+                            
+                                  <div class="modal-footer d-flex justify-content-center">
+                                    <button mdbBtn color="warning" class="waves-light" mdbWavesEffect>Save Item</button>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+
+                          </span>
+                        </td>
+                    </tr>
+
+                    <!-- <tr class="hoverable">
+                      <td>123456</td>
+                      <td>Rolls</td>
+                      <td>Rs 30.00</td>
+                      <td><select class=" custom-select">
+                          <option selected>Availabile</option>                            
+                          <option value="1">Not Available</option>                           
+                        </select>
+                      </td>
+                      <td>90%</td>
+                      <td>23/80</td>
+                      <td>
+                          <span class="table-remove">
+
+                            
+                            <button type="button" mdbBtn color="danger" rounded="true" size="sm" class="relative waves-light" (click)="editModal.show()" mdbWavesEffect >Edit</button>
+
+                            <div mdbModal #editModal="mdbModal" class="modal fade right" id="frameModalTop" tabindex="-1" role="dialog"
+                                aria-labelledby="myModalLabel" aria-hidden="true">
+                              <div class="modal-dialog modal-full-height modal-right" role="document">
+                                <div class="modal-content">
+                                  <div class="modal-header text-center">
+                                    <h4 class="modal-title w-100 font-weight-bold">Edit Item</h4>
+                                  </div>
+                                  
+
+                                  <div class="modal-body mx-3">
+                                    <form class="border border-0 p-4" id="add-item">
+                                      
+                                        <div>                       
+                                            <input type="text" id="textInput" class="form-control mb-4" placeholder="Product Name">
+                                        </div>
+                                        <div class="input-group mb-2 mr-sm-2">
+                                          <div class="input-group-prepend">
+                                            <div class="input-group-text">Rs.</div>
+                                          </div>
+                                          <input mdbInput type="number" class="form-control py-0" min="1" id="price"  placeholder="Price">
+                                        </div>
+                                      
+                                      <select class="browser-default custom-select mb-4" id="select">
+                                          <option value="" disabled="" selected="">Choose the category</option>
+                                          <option value="1">Short Eats</option>
+                                          <option value="2">Rice & Curry</option>
+                                          <option value="3">Beverages</option>
+                                          <option value="3">Deserts</option>
+                                      </select>
+                                      <select class="browser-default custom-select mb-4" id="select">
+                                        <option value="" disabled="" selected="">Menu time</option>
+                                        <option value="1">Breakfirst (till 11a.m)</option>
+                                        <option value="2">Lunch (11a.m-3p.m)</option>
+                                        <option value="3">Evening (after 3p.m)</option>
+                                        <option value="3">All Day</option>
+                                      </select>
+                                
+                                      <div class="input-group mb-4">
+                                          <div class="custom-file">
+                                              <input type="file" class="custom-file-input" id="fileInput" aria-describedby="fileInput" multiple>
+                                              <label class="custom-file-label" for="fileInput">Select Images</label>
+                                          </div>
+                                      </div>
+                                    
+                                        
+                                              <div class="custom-control custom-checkbox mb-3">
+                                                  <input type="checkbox" class="custom-control-input" id="customControlValidation1" required>
+                                                  <label class="custom-control-label" for="customControlValidation1">Vegetarian</label>                               
+                                              </div>
+                                        
+                                    
+                                      <textarea id="textarea" class="form-control mb-4" placeholder="Description"></textarea>
+                                    
+                                  </form>
+                                  </div>
+
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="frame.hide()">
+                                      <span aria-hidden="true">&times;</span>
+                                    </button>
+                                  
+                                  
+                                  <div class="modal-footer d-flex justify-content-center">
+                                    <button mdbBtn color="warning" class="waves-light" mdbWavesEffect>Add Item</button>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+
+                          </span>
+                        </td>
+                    </tr> -->
+
+                    <!-- with basic button -->
+                    <!-- <tr class="hoverable">
                         <td>123456</td>
                         <td>patis</td>
                         <td>Rs 20.00</td>
@@ -92,295 +542,8 @@
                               <button type="button" mdbBtn color="danger" rounded="true" size="sm" class="my-0" >Edit</button>
                             </span>
                           </td>
-                    </tr>
+                    </tr> -->
 
-                    <tr class="hoverable">
-                        <td>123456</td>
-                        <td>Wade</td>
-                        <td>Rs 30.00</td>
-                        <td><select class=" custom-select">
-                            <option selected>Availabile</option>                            
-                            <option value="1">Not Available</option>                           
-                          </select>
-                        </td>
-                        <td>80%</td>
-                        <td>20/80</td>
-                        <td>
-                            <span class="table-remove">
-                              <button type="button" mdbBtn color="danger" rounded="true" size="sm" class="my-0" >Edit</button>
-                            </span>
-                          </td>
-                    </tr>
-
-                    <tr class="hoverable">
-                        <td>123456</td>
-                        <td>Rolls</td>
-                        <td>Rs 30.00</td>
-                        <td><select class=" custom-select">
-                            <option selected>Availabile</option>                            
-                            <option value="1">Not Available</option>                           
-                          </select>
-                        </td>
-                        <td>90%</td>
-                        <td>23/80</td>
-                        <td>
-                            <span class="table-remove">
-                              <button type="button" mdbBtn color="danger" rounded="true" size="sm" class="my-0" >Edit</button>
-                            </span>
-                          </td>
-                    </tr>
-
-                    <tr class="hoverable">
-                        <td>123456</td>
-                        <td>patis</td>
-                        <td>Rs 20.00</td>
-                        <td><select class=" custom-select">
-                            <option selected>Availabile</option>                            
-                            <option value="1">Not Available</option>                           
-                          </select>
-                        </td>
-                        <td>78%</td>
-                        <td>45/80</td>
-                        <td>
-                            <span class="table-remove">
-                              <button type="button" mdbBtn color="danger" rounded="true" size="sm" class="my-0" >Edit</button>
-                            </span>
-                          </td>
-                    </tr>
-
-                    <tr class="hoverable">
-                        <td>123456</td>
-                        <td>Wade</td>
-                        <td>Rs 30.00</td>
-                        <td><select class=" custom-select">
-                            <option selected>Availabile</option>                            
-                            <option value="1">Not Available</option>                           
-                          </select>
-                        </td>
-                        <td>80%</td>
-                        <td>20/80</td>
-                        <td>
-                            <span class="table-remove">
-                              <button type="button" mdbBtn color="danger" rounded="true" size="sm" class="my-0" >Edit</button>
-                            </span>
-                          </td>
-                    </tr>
-
-                    <tr class="hoverable">
-                        <td>123456</td>
-                        <td>Rolls</td>
-                        <td>Rs 30.00</td>
-                        <td><select class=" custom-select">
-                            <option selected>Availabile</option>                            
-                            <option value="1">Not Available</option>                           
-                          </select>
-                        </td>
-                        <td>90%</td>
-                        <td>23/80</td>
-                        <td>
-                            <span class="table-remove">
-                              <button type="button" mdbBtn color="danger" rounded="true" size="sm" class="my-0" >Edit</button>
-                            </span>
-                          </td>
-                    </tr>
-
-                    <tr class="hoverable">
-                        <td>123456</td>
-                        <td>patis</td>
-                        <td>Rs 20.00</td>
-                        <td><select class=" custom-select">
-                            <option selected>Availabile</option>                            
-                            <option value="1">Not Available</option>                           
-                          </select>
-                        </td>
-                        <td>78%</td>
-                        <td>45/80</td>
-                        <td>
-                            <span class="table-remove">
-                              <button type="button" mdbBtn color="danger" rounded="true" size="sm" class="my-0" >Edit</button>
-                            </span>
-                          </td>
-                    </tr>
-
-                    <tr class="hoverable">
-                        <td>123456</td>
-                        <td>Wade</td>
-                        <td>Rs 30.00</td>
-                        <td><select class=" custom-select">
-                            <option selected>Availabile</option>                            
-                            <option value="1">Not Available</option>                           
-                          </select>
-                        </td>
-                        <td>80%</td>
-                        <td>20/80</td>
-                        <td>
-                            <span class="table-remove">
-                              <button type="button" mdbBtn color="danger" rounded="true" size="sm" class="my-0" >Edit</button>
-                            </span>
-                          </td>
-                    </tr>
-
-                    <tr class="hoverable">
-                        <td>123456</td>
-                        <td>Rolls</td>
-                        <td>Rs 30.00</td>
-                        <td><select class=" custom-select">
-                            <option selected>Availabile</option>                            
-                            <option value="1">Not Available</option>                           
-                          </select>
-                        </td>
-                        <td>90%</td>
-                        <td>23/80</td>
-                        <td>
-                            <span class="table-remove">
-                              <button type="button" mdbBtn color="danger" rounded="true" size="sm" class="my-0" >Edit</button>
-                            </span>
-                          </td>
-                    </tr>
-
-                    <tr class="hoverable">
-                        <td>123456</td>
-                        <td>patis</td>
-                        <td>Rs 20.00</td>
-                        <td><select class=" custom-select">
-                            <option selected>Availabile</option>                            
-                            <option value="1">Not Available</option>                           
-                          </select>
-                        </td>
-                        <td>78%</td>
-                        <td>45/80</td>
-                        <td>
-                            <span class="table-remove">
-                              <button type="button" mdbBtn color="danger" rounded="true" size="sm" class="my-0" >Edit</button>
-                            </span>
-                          </td>
-                    </tr>
-
-                    <tr class="hoverable">
-                        <td>123456</td>
-                        <td>Wade</td>
-                        <td>Rs 30.00</td>
-                        <td><select class=" custom-select">
-                            <option selected>Availabile</option>                            
-                            <option value="1">Not Available</option>                           
-                          </select>
-                        </td>
-                        <td>80%</td>
-                        <td>20/80</td>
-                        <td>
-                            <span class="table-remove">
-                              <button type="button" mdbBtn color="danger" rounded="true" size="sm" class="my-0" >Edit</button>
-                            </span>
-                          </td>
-                    </tr>
-
-                    <tr class="hoverable">
-                        <td>123456</td>
-                        <td>Rolls</td>
-                        <td>Rs 30.00</td>
-                        <td><select class=" custom-select">
-                            <option selected>Availabile</option>                            
-                            <option value="1">Not Available</option>                           
-                          </select>
-                        </td>
-                        <td>90%</td>
-                        <td>23/80</td>
-                        <td>
-                            <span class="table-remove">
-                              <button type="button" mdbBtn color="danger" rounded="true" size="sm" class="my-0" >Edit</button>
-                            </span>
-                          </td>
-                    </tr>
-
-                    <tr class="hoverable">
-                        <td>123456</td>
-                        <td>patis</td>
-                        <td>Rs 20.00</td>
-                        <td><select class=" custom-select">
-                            <option selected>Availabile</option>                            
-                            <option value="1">Not Available</option>                           
-                          </select>
-                        </td>
-                        <td>78%</td>
-                        <td>45/80</td>
-                        <td>
-                            <span class="table-remove">
-                              <button type="button" mdbBtn color="danger" rounded="true" size="sm" class="my-0" >Edit</button>
-                            </span>
-                          </td>
-                    </tr>
-
-                    <tr class="hoverable">
-                        <td>123456</td>
-                        <td>Wade</td>
-                        <td>Rs 30.00</td>
-                        <td><select class=" custom-select">
-                            <option selected>Availabile</option>                            
-                            <option value="1">Not Available</option>                           
-                          </select>
-                        </td>
-                        <td>80%</td>
-                        <td>20/80</td>
-                        <td>
-                            <span class="table-remove">
-                              <button type="button" mdbBtn color="danger" rounded="true" size="sm" class="my-0" >Edit</button>
-                            </span>
-                          </td>
-                    </tr>
-
-                    <tr class="hoverable">
-                        <td>123456</td>
-                        <td>Rolls</td>
-                        <td>Rs 30.00</td>
-                        <td><select class=" custom-select">
-                            <option selected>Availabile</option>                            
-                            <option value="1">Not Available</option>                           
-                          </select>
-                        </td>
-                        <td>90%</td>
-                        <td>23/80</td>
-                        <td>
-                            <span class="table-remove">
-                              <button type="button" mdbBtn color="danger" rounded="true" size="sm" class="my-0" >Edit</button>
-                            </span>
-                          </td>
-                    </tr>
-
-                    <tr class="hoverable">
-                        <td>123456</td>
-                        <td>patis</td>
-                        <td>Rs 20.00</td>
-                        <td><select class=" custom-select">
-                            <option selected>Availabile</option>                            
-                            <option value="1">Not Available</option>                           
-                          </select>
-                        </td>
-                        <td>78%</td>
-                        <td>45/80</td>
-                        <td>
-                            <span class="table-remove">
-                              <button type="button" mdbBtn color="danger" rounded="true" size="sm" class="my-0" >Edit</button>
-                            </span>
-                          </td>
-                    </tr>
-
-                    <tr class="hoverable">
-                        <td>123456</td>
-                        <td>Wade</td>
-                        <td>Rs 30.00</td>
-                        <td><select class=" custom-select">
-                            <option selected>Availabile</option>                            
-                            <option value="1">Not Available</option>                           
-                          </select>
-                        </td>
-                        <td>80%</td>
-                        <td>20/80</td>
-                        <td>
-                            <span class="table-remove">
-                              <button type="button" mdbBtn color="danger" rounded="true" size="sm" class="my-0" >Edit</button>
-                            </span>
-                          </td>
-                    </tr>
 
                     <!-- /example lines -->
 
@@ -403,7 +566,118 @@
             
         </div>
     </div>
-</div>
+  </div>
+
+    <!-- popup window -->
+
+            <div mdbModal #frame="mdbModal" class="modal fade right" id="frameModalTop" tabindex="-1" role="dialog"
+                aria-labelledby="myModalLabel" aria-hidden="true">
+              <div class="modal-dialog " role="document">
+                <div class="modal-content">
+                  <div class="modal-header text-center">
+                    <h4 class="modal-title w-100 font-weight-bold">Add New Item</h4>
+                  </div>
+                  
+
+                  <div class="modal-body mx-3">
+                    <form class="border border-0 p-4" id="add-item">
+                      
+                        <div>                       
+                            <input type="text" id="textInput" class="form-control mb-4" placeholder="Product Name">
+                        </div>
+                        <div class="input-group mb-2 mr-sm-2">
+                          <div class="input-group-prepend">
+                            <div class="input-group-text">Rs.</div>
+                          </div>
+                          <input mdbInput type="number" class="form-control py-0" min="1" id="price"  placeholder="Price">
+                        </div>
+                      
+                      <select class="browser-default custom-select mb-4" id="select">
+                          <option value="" disabled="" selected="">Choose the category</option>
+                          <option value="1">Short Eats</option>
+                          <option value="2">Rice & Curry</option>
+                          <option value="3">Beverages</option>
+                          <option value="3">Deserts</option>
+                      </select>
+                      <select class="browser-default custom-select mb-4" id="select">
+                        <option value="" disabled="" selected="">Menu time</option>
+                        <option value="1">Breakfirst (till 11a.m)</option>
+                        <option value="2">Lunch (11a.m-3p.m)</option>
+                        <option value="3">Evening (after 3p.m)</option>
+                        <option value="3">All Day</option>
+                      </select>
+                
+                      <div class="input-group mb-4">
+                          <div class="custom-file">
+                              <input type="file" class="custom-file-input" id="fileInput" aria-describedby="fileInput" multiple>
+                              <label class="custom-file-label" for="fileInput">Select Images</label>
+                          </div>
+                      </div>
+                    
+                        
+                              <div class="custom-control custom-checkbox mb-3">
+                                  <input type="checkbox" class="custom-control-input" id="customControlValidation1" required>
+                                  <label class="custom-control-label" for="customControlValidation1">Vegetarian</label>                               
+                              </div>
+                        
+                    
+                      <textarea id="textarea" class="form-control mb-4" placeholder="Description"></textarea>
+                    
+                  </form>
+                  </div>
+
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="frame.hide()">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  
+                  
+                  <div class="modal-footer d-flex justify-content-center">
+                    <button mdbBtn color="warning" class="waves-light" mdbWavesEffect>Add Item</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+    <!-- form -->
+
+    <!-- <form class="text-center border border-light p-5">
+
+      <p class="h4 mb-4">Contact us</p>
+
+      
+      <input type="text" formControlName="contactFormName" id="defaultContactFormName" mdbInput
+        class="form-control mb-4" placeholder="Name">
+
+      
+      <input type="email" formControlName="contactFormEmail" id="defaultContactFormEmail" mdbInput
+        class="form-control mb-4" placeholder="E-mail">
+
+     
+      <label>Subject</label>
+      <select formControlName="contactFormSubjects" class="browser-default custom-select mb-4">
+        <option value="" disabled>Choose option</option>
+        <option value="1" selected>Feedback</option>
+        <option value="2">Report a bug</option>
+        <option value="3">Feature request</option>
+        <option value="4">Feature request</option>
+      </select>
+
+     
+      <div class="form-group">
+        <textarea formControlName="contactFormMessage" class="form-control rounded-0" mdbInput id="exampleFormControlTextarea2"
+          rows="3" placeholder="Message"></textarea>
+      </div>
+
+     
+      <mdb-checkbox [default]="true" class="mb-4">Send me a copy of this message</mdb-checkbox>
+
+     
+      <button mdbBtn color="info" outline="true" block="true" class="z-depth-0 my-4 waves-effect"
+        mdbWavesEffect type="submit">Send</button>
+
+    </form> -->
+    
 
 
 
