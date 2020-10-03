@@ -15,14 +15,14 @@
         <li class="nav-item ">
           <a class="nav-link waves-light" mdbWavesEffect><h5><strong>Dashboard</strong></h5></a>
         </li>
-        <li class="nav-item active" style="padding-left: 30px;">
-          <a class="nav-link waves-light" [routerLink]="['instock']"  mdbWavesEffect>In Stock <span class="sr-only">(current)</span></a>
+        <li class="nav-item" style="padding-left: 30px;">
+          <a class="nav-link waves-light" [routerLink]="['/instock']" class="nav-link" mdbWavesEffect>In Stock </a>
         </li>
         <li class="nav-item" style="padding-left: 30px;">
-          <a class="nav-link waves-light" mdbWavesEffect>Credit Convert</a>
+          <a class="nav-link waves-light" [routerLink]= "['/converter']" class="nav-link" mdbWavesEffect>Credit Convert</a>
         </li>
         <li class="nav-item" style="padding-left: 30px;">
-            <a class="nav-link waves-light" mdbWavesEffect>Cashier</a>
+            <a class="nav-link waves-light" [routerLink]="['/cashier']" class="nav-link" mdbWavesEffect>Cashier</a>
         </li>
   
         
