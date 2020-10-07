@@ -14,6 +14,8 @@ import { NavbarComponent } from './Shared/navbar/navbar.component';
 import { DcardComponent } from './Shared/dcard/dcard.component';
 import { InstockComponent } from './instock/instock.component';
 import { SigninComponent } from './signin/signin.component';
+import { CashierComponent } from './cashier/cashier.component';
+import { ConverterComponent } from './converter/converter.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,9 @@ import { SigninComponent } from './signin/signin.component';
     NavbarComponent,
     DcardComponent,
     InstockComponent,
-    SigninComponent
+    SigninComponent,
+    CashierComponent,
+    ConverterComponent
   ],
   imports: [
     BrowserModule,

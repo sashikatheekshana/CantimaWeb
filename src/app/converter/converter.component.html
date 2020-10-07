@@ -2,26 +2,28 @@
     <div class="col-lg-2 col-md-2">
       <app-dcard></app-dcard>
     </div>
+    
     <div class="container col-lg-9 col-md-9" >
+
         <div>
             <div class="row" style="margin: 0px; padding: 0px;">
 
                 <div class="col">
-                    <h3>In Stock</h3>
+                    <h3>Credit Convert</h3>
                 </div>
                 <div class="col">
 
                   <!-- Search form -->
-                    <form class="form-inline waves-light" mdbWavesEffect>
+                    <!-- <form class="form-inline waves-light" mdbWavesEffect>
                         <div class="md-form my-0">
                             <input class="form-control mr-sm-2" type="text" placeholder="Search">
                         </div>
                     <button type="button" mdbBtn color="warning" style="padding: 10px; box-shadow: none; box-sizing: initial;" mdbWavesEffect><mdb-icon fas icon="search" size="1.5x" ></mdb-icon></button> 
-                    </form>
+                    </form> -->
                 </div>
 
                 <!-- Sort select -->
-                <div class="col">
+                <!-- <div class="col">
                     <select class="browser-default custom-select">
                         <option selected>Sort Type</option>
                         <option value="1">Price</option>
@@ -29,30 +31,32 @@
                         <option value="3">Quantity</option>
                         <option value="3">Rating</option>
                       </select>
-                </div>
+                </div> -->
 
-                <!-- -------------------New Item-------------------------- -->
+                 <!-- -------------------New Item-------------------------- -->
 
-                <div class="col " style="text-align: right;">
+                 <div class="col " style="text-align: right;">
                     <button class="black-text " type="button" mdbBtn color="warning" style="margin-bottom: 10px; margin-top: 0px; box-sizing: content-box;"  data-toggle="modal" data-target="#basicExample"
                     (click)="frame.show()"  mdbWavesEffect>
-                      <strong>New Item</strong> 
+                      <strong>Convert</strong> 
                       <mdb-icon fas icon="plus" size="1.5x" style="margin-left: 15px;"></mdb-icon>
                     </button>
                     
                 </div>
+            
+               
             
                 <!-- --------------table----------------- -->
                 
             <table class="table table-striped "  mdbTable hover='true' >
                 <thead class="text-center" style="background-color: rgb(245, 245, 245)" >
                     <tr >
-                    <th> Product Code</th>
-                    <th> Product Name</th>
-                    <th> Price</th>
-                    <th> Availability</th>
-                    <th> Rating</th>
-                    <th> Quantity</th>
+                    <th> Convertion ID</th>
+                    <th> User  ID</th>
+                    <th> Date</th>
+                    <th> Time</th>
+                    <th> Amount</th>
+                    <th> Cashier</th>
                     <th>  </th>
                     </tr>
                    
@@ -60,27 +64,20 @@
                     <!-- example lines -->
                     <tr>
                         <td>123456</td>
-                        <td>Rolls</td>
-                        <td>Rs 30.00</td>
-                        <td>
-
-                          <label class="switch">
-                            <input type="checkbox" checked>
-                            <span class="slider round"></span>
-                            <span class="absolute-no">NO</span>
-                          </label>
+                        <td>1704090</td>
+                        <td>7/10/2020</td>
+                        <td>15:25</td>
+                        <td>Rs 300.00</td>
+                        <td>Jhon</td>
                         
-                        </td>
-                        <td>90%</td>
-                        <td>23/80</td>
                         <td>
                             <span class="table-edit">
 
                               
-                              <button type="button" mdbBtn color="danger" rounded="true" size="sm" class="relative waves-light" (click)="editModal.show()" mdbWavesEffect >Edit</button>
+                              <!-- <button type="button" mdbBtn color="danger" rounded="true" size="sm" class="relative waves-light" (click)="editModal.show()" mdbWavesEffect >Edit</button> -->
                               <button type="button" mdbBtn color="danger" rounded="true" size="sm" class="my-0" ><mdb-icon fas icon="trash"></mdb-icon></button>
 
-                              <div mdbModal #editModal="mdbModal" class="modal fade right" id="frameModalTop" tabindex="-1" role="dialog"
+                              <!-- <div mdbModal #editModal="mdbModal" class="modal fade right" id="frameModalTop" tabindex="-1" role="dialog"
                                   aria-labelledby="myModalLabel" aria-hidden="true">
                                 <div class="modal-dialog modal-full-height modal-right" role="document">
                                   <div class="modal-content">
@@ -145,7 +142,7 @@
                                     </div>
                                   </div>
                                 </div>
-                              </div>
+                              </div> -->
 
                             </span>
                           </td>
@@ -164,159 +161,78 @@
             
         </div>
         </div>
+
+
+    </div>
+</div>
+
+
+    <!--pop up Model -->
+
+    <div mdbModal #frame="mdbModal" class="modal fade right" id="frameModalTop" tabindex="-1" role="dialog"
+    aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog " role="document">
+    <div class="modal-content">
+    <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Convert Credits</h4>
+    </div>
+    
+
+    <div class="modal-body mx-3">
+        <form class="border border-0 p-4" id="add-item">
+        
+            <div>                       
+                <input type="text" id="textInput" class="form-control mb-4" placeholder="UserID">
+            </div>
+            
+            <div class="input-group mb-2 mr-sm-2">
+            <div class="input-group-prepend">
+                <div class="input-group-text">Rs.</div>
+            </div>
+            <input mdbInput type="number" class="form-control py-0" min="1" id="price"  placeholder="Amount">
+            </div>
+               
+        
+    </form>
     </div>
 
-    <!-- popup window -->
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="frame.hide()">
+        <span aria-hidden="true">&times;</span>
+        </button>
+    
+    
+    <div class="modal-footer d-flex justify-content-center">
+        <button mdbBtn color="warning" class="waves-light " (click)="confirmModal.show()" mdbWavesEffect>Confirm</button>
+    </div>
+    </div>
+    </div>
+    </div>
 
-            <div mdbModal #frame="mdbModal" class="modal fade right" id="frameModalTop" tabindex="-1" role="dialog"
-                aria-labelledby="myModalLabel" aria-hidden="true">
-              <div class="modal-dialog " role="document">
-                <div class="modal-content">
-                  <div class="modal-header text-center">
-                    <h4 class="modal-title w-100 font-weight-bold">Add New Item</h4>
-                  </div>
-                  
+    <!-- confirm Model -->
 
-                  <div class="modal-body mx-3">
-                    <form class="border border-0 p-4" id="add-item">
-                      
-                        <div>                       
-                            <input type="text" id="textInput" class="form-control mb-4" placeholder="Product Name">
-                        </div>
-                        <div class="input-group mb-2 mr-sm-2">
-                          <div class="input-group-prepend">
-                            <div class="input-group-text">Rs.</div>
-                          </div>
-                          <input mdbInput type="number" class="form-control py-0" min="1" id="price"  placeholder="Price">
-                        </div>
-                      
-                      <select class="browser-default custom-select mb-4" id="select">
-                          <option value="" disabled="" selected="">Choose the category</option>
-                          <option value="1">Short Eats</option>
-                          <option value="2">Rice & Curry</option>
-                          <option value="3">Beverages</option>
-                          <option value="3">Deserts</option>
-                      </select>
-                      <select class="browser-default custom-select mb-4" id="select">
-                        <option value="" disabled="" selected="">Menu time</option>
-                        <option value="1">Breakfirst (till 11a.m)</option>
-                        <option value="2">Lunch (11a.m-3p.m)</option>
-                        <option value="3">Evening (after 3p.m)</option>
-                        <option value="3">All Day</option>
-                      </select>
-                
-                      <div class="input-group mb-4">
-                          <div class="custom-file">
-                              <input type="file" class="custom-file-input" id="fileInput" aria-describedby="fileInput" multiple>
-                              <label class="custom-file-label" for="fileInput">Select Images</label>
-                          </div>
-                      </div>
-                    
-                        
-                              <div class="custom-control custom-checkbox mb-3">
-                                  <input type="checkbox" class="custom-control-input" id="customControlValidation1" required>
-                                  <label class="custom-control-label" for="customControlValidation1">Vegetarian</label>                               
-                              </div>
-                        
-                    
-                      <textarea id="textarea" class="form-control mb-4" placeholder="Description"></textarea>
-                    
-                  </form>
-                  </div>
-
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="frame.hide()">
-                      <span aria-hidden="true">&times;</span>
-                    </button>
-                  
-                  
-                  <div class="modal-footer d-flex justify-content-center">
-                    <button mdbBtn color="warning" class="waves-light" mdbWavesEffect>Add Item</button>
-                  </div>
-                </div>
-              </div>
+    <div mdbModal #confirmModal="mdbModal" class="modal fade right" tabindex="-1" role="dialog" aria-labelledby="myconfirmModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close pull-right" aria-label="Close" (click)="confirmModal.hide()">
+                <span aria-hidden="true">×</span>
+              </button>
+              <h4 class="modal-title text-center w-100" id="myModalLabel">Confirm Convertion</h4>
             </div>
-
-
-    <!-- form -->
-
-    <!-- <form class="text-center border border-light p-5">
-
-      <p class="h4 mb-4">Contact us</p>
-
-      
-      <input type="text" formControlName="contactFormName" id="defaultContactFormName" mdbInput
-        class="form-control mb-4" placeholder="Name">
-
-      
-      <input type="email" formControlName="contactFormEmail" id="defaultContactFormEmail" mdbInput
-        class="form-control mb-4" placeholder="E-mail">
-
-     
-      <label>Subject</label>
-      <select formControlName="contactFormSubjects" class="browser-default custom-select mb-4">
-        <option value="" disabled>Choose option</option>
-        <option value="1" selected>Feedback</option>
-        <option value="2">Report a bug</option>
-        <option value="3">Feature request</option>
-        <option value="4">Feature request</option>
-      </select>
-
-     
-      <div class="form-group">
-        <textarea formControlName="contactFormMessage" class="form-control rounded-0" mdbInput id="exampleFormControlTextarea2"
-          rows="3" placeholder="Message"></textarea>
-      </div>
-
-     
-      <mdb-checkbox [default]="true" class="mb-4">Send me a copy of this message</mdb-checkbox>
-
-     
-      <button mdbBtn color="info" outline="true" block="true" class="z-depth-0 my-4 waves-effect"
-        mdbWavesEffect type="submit">Send</button>
-
-    </form> -->
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
-        
-        
-  
-
-
-
-
-
+            <div class="modal-body text-center">
+               An amount of ***** credits will be added to the account :
+              <br> 
+              UserID: ******
+              <br>
+              Name: ****** 
+              <br> 
+              Please verify above details before confirming.
+            </div>
+            <div class="modal-footer justify-content-center">
+              <button type="button" mdbBtn color="danger" class="waves-light" aria-label="Close" (click)="confirmModal.hide()" mdbWavesEffect>Cancel</button>
+              <button type="button" mdbBtn color="success" class="relative waves-light" (click)="confirmModal.hide() ; frame.hide()" mdbWavesEffect>Confirm</button>
+            </div>
+          </div>
+        </div>
+    </div>
 
